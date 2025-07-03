@@ -1,4 +1,5 @@
-const Base_url = "https://blog-backend-1-adzn.onrender.com";
+const Base_url = "https://blogging-app-hkqn.onrender.com";
+
 
 export default {
     Sign_in: `${Base_url}/api/users/login`,
