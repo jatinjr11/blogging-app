@@ -15,7 +15,7 @@ import { Toaster } from 'react-hot-toast';
 import UpdateBlog from './dashbboard/UpdateBlog'
 import Detail from './Pages/Detail'
 import Verify from './Pages/Verify'
-import NotFound from './Pages/NotFound'
+import NotFound from './Pages/Notfound'
 import ForgotPassword from './Pages/ForgotPassword'
 import ResetPassword from './Pages/ResetPassword'
 import UpdateProfile from "./dashbboard/UpdateProfile"
