@@ -49,7 +49,10 @@ export const AuthProvider = ({ children }) => {
         
         const fetchBlogs = async () => {
             try {
-                const { data } = await axios.get(`${api.Get_all_blogs}`);
+                const { data } = await axios.get(`${api.Get_all_blogs }`, {
+                    withCredentials: true
+                });
+                
                 console.log(data);
                 console.log(data)
                 setBlogs(data);
