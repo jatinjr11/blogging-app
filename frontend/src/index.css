@@ -1,0 +1,66 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400&family=Roboto:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #dcdde1;   
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto', sans-serif;
+}
+
+span{
+    font-family: 'Fredoka', sans-serif;
+}
+
+.loaderContainer{
+    height: '100vh';
+    display: 'flex';
+    flex-direction: 'column';
+    justify-content: 'center';
+    align-items: 'center';
+    background-color: '#f9f9f9';
+  }
+  .spinner {
+    width: 60;
+    height: 60;
+    border: '6px solid #ddd';
+    border-top: '6px solid #3498db';
+    border-radius: '50%';
+    animation: 'spin 1s linear infinite';
+  }
+
+  
+
+
+
+  .expand-enter {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+  
+  .expand-enter-active {
+    max-height: 1000px; /* max enough height */
+    opacity: 1;
+    transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+  }
+  
+  .expand-exit {
+    max-height: 1000px;
+    opacity: 1;
+    overflow: hidden;
+  }
+  
+  .expand-exit-active {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+  }
