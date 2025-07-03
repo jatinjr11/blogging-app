@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Apis from "../../Apis";
 import api from "../apis/api";
 
 function Creator() {

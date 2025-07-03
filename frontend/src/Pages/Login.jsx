@@ -9,7 +9,6 @@ import { auth } from '../Firebase';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Apis from '../../Apis';
 import api from '../apis/api';
 
 const Login = () => {

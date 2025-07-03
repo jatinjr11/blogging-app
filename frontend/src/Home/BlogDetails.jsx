@@ -1,5 +1,4 @@
 import axios from "axios";
-import Apis from "../../Apis";
 import api from "../apis/api";
 
 const [commentText, setCommentText] = useState("");

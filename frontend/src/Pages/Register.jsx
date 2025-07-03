@@ -5,7 +5,6 @@ import toast from 'react-hot-toast';
 import { useAuth } from '../context/AuthProvider';
 import { auth } from "../Firebase";  // Make sure Firebase is configured
 import { signInWithPopup } from "firebase/auth";
-import Apis from '../../Apis';
 import api from '../apis/api';
 
 const Register = () => {

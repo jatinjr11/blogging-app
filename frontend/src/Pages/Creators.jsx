@@ -4,7 +4,6 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
-import Apis from "../../Apis";
 import api from "../apis/api";
 
 function Creators() {

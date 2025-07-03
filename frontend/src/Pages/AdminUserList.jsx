@@ -4,7 +4,6 @@ import { useAuth } from '../context/AuthProvider';
 import toast from 'react-hot-toast';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// import Apis from '../../Apis';
 import api from '../apis/api';
 
 const AdminUserList = () => {
