@@ -8,7 +8,6 @@ import { useAuth } from '../context/AuthProvider';
 import toast from 'react-hot-toast';
 import { ListCheckIcon } from 'lucide-react';
 import { AiFillLike, AiOutlineLike, AiTwotoneLike } from "react-icons/ai";
-import '../../Apis'
 import api from '../apis/api';
 
 const Detail = () => {
