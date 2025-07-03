@@ -7,7 +7,6 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import ThemeToggle from './ThemeToggle';
 import { motion, AnimatePresence } from 'framer-motion';
-import Apis from '../../Apis';
 import api from '../apis/api';
 
 const Navbar = () => {
