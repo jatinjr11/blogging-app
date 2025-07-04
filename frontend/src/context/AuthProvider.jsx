@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from 'react'
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 import api from "../apis/api";
 
 export const AuthContext = createContext();
@@ -18,10 +18,10 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                // let token = Cookies.get("token");
-                // let parsedToken = token?JSON.parse(token) : undefined;
-                // console.log("parsed",parsedToken);
-                // if (parsedToken) {
+                let token = Cookies.get("token");
+                let parsedToken = token?JSON.parse(token) : undefined;
+                console.log("parsed",parsedToken);
+                if (parsedToken) {
                 const { data } = await axios.get(`${api.Get_my_profile}`,
                     {
                         withCredentials: true,
@@ -33,9 +33,9 @@ export const AuthProvider = ({ children }) => {
                 setProfile(data.user);   
                 localStorage.setItem('profile', JSON.stringify(data.user));
                 setIsAuthenticated(true);
-                // } else {
-                // console.log("No token");
-                // }
+                } else {
+                console.log("No token");
+                }
             } catch (error) {
                 setIsAuthenticated(false);
                 console.log(error);
