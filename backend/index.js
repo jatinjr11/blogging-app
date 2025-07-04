@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser()); 
 const allowedOrigins = [
-    'http://localhost:5173',
-    'https://blogging-app-frontend-vobi.onrender.com'
+    'https://blogging-app-frontend-vobi.onrender.com',
+    'http://localhost:5173'
   ];
   
   app.use(cors({
