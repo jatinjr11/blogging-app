@@ -1,4 +1,4 @@
-const Base_url = "https://blogging-app-hkqn.onrender.com";
+const Base_url = "https://your-backend-url.onrender.com";
 
 
 export default {
