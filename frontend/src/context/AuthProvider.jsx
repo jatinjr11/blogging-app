@@ -9,19 +9,19 @@ export const AuthProvider = ({ children }) => {
     const [profile, setProfile] = useState(() => {
         const stored = localStorage.getItem('profile');
         return stored ? JSON.parse(stored) : null;
-      });
+    });
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [loading, setLoading] = useState(true); // <-- ADD THIS
-    console.log("My-Profile",  profile);
+    console.log("My-Profile", profile);
 
 
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                let token = Cookies.get("token");
-                let parsedToken = token?JSON.parse(token) : undefined;
-                console.log("parsed",parsedToken);
-                if (parsedToken) {
+                // let token = Cookies.get("token");
+                // let parsedToken = token?JSON.parse(token) : undefined;
+                // console.log("parsed",parsedToken);
+                // if (parsedToken) {
                 const { data } = await axios.get(`${api.Get_my_profile}`,
                     {
                         withCredentials: true,
@@ -29,13 +29,13 @@ export const AuthProvider = ({ children }) => {
                     }
                 );
                 console.log(data);
-                
-                setProfile(data.user);   
+
+                setProfile(data.user);
                 localStorage.setItem('profile', JSON.stringify(data.user));
                 setIsAuthenticated(true);
-                } else {
-                console.log("No token");
-                }
+                // } else {
+                // console.log("No token");
+                // }
             } catch (error) {
                 setIsAuthenticated(false);
                 console.log(error);
@@ -43,15 +43,15 @@ export const AuthProvider = ({ children }) => {
                 localStorage.removeItem('profile');
             } finally {
                 setLoading(false); // <-- SET loading false when done
-              }
+            }
         };
-        
+
         const fetchBlogs = async () => {
             try {
-                const { data } = await axios.get(`${api.Get_all_blogs }`, {
+                const { data } = await axios.get(`${api.Get_all_blogs}`, {
                     withCredentials: true
                 });
-                
+
                 console.log(data);
                 console.log(data)
                 setBlogs(data);
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ blogs, profile, setProfile, userId: profile?._id,  isAuthenticated, setIsAuthenticated,loading }} > {children} </AuthContext.Provider>
+        <AuthContext.Provider value={{ blogs, profile, setProfile, userId: profile?._id, isAuthenticated, setIsAuthenticated, loading }} > {children} </AuthContext.Provider>
     );
 };
 // blogs ki value ko access krne ke liye custom hook banaya

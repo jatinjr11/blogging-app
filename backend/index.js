@@ -6,7 +6,7 @@ import userRoute from "./routes/user.route.js";
 import blogRoute from "./routes/blog.route.js";
 import { v2 as cloudinary } from "cloudinary";
 import cookieParser from "cookie-parser";
-import cors  from "cors";
+import cors from "cors";
 const app = express();
 dotenv.config();
 console.log("PORT:", process.env.PORT);
@@ -18,29 +18,17 @@ const MONGO_URI = process.env.MONGO_URI
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser()); 
-const allowedOrigins = [
-    'https://blogging-app-frontend-vobi.onrender.com',
-    'http://localhost:5173'
-  ];
-  
-  app.use(cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-  }));
-  
-
-app.use(fileUpload({
-    useTempFiles: true,
-    tempFileDir: "/tmp/",
+app.use(cookieParser());
+app.use(cors({
+  origin: process.env.FRONTEND_URL, // ✅ Make sure this matches exactly (no typo or trailing slash)
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
 }));
 
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: "/tmp/",
+}));
 
 // DB Code 
 mongoose.connect(MONGO_URI)
@@ -54,14 +42,14 @@ app.use("/api/blogs", blogRoute);
 
 
 // CLOUDINARY CONFIG
- // Configuration
+// Configuration
 //  yunavglawevshnii
- cloudinary.config({ 
-    cloud_name: process.env.CLOUD_NAME, 
-    api_key: process.env.CLOUD_API_KEY, 
-    api_secret: process.env.CLOUD_SECRET_KEY 
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_SECRET_KEY
 });
 
-app.listen(port, ()=>{
-    console.log(`server running on port ${port}`);
+app.listen(port, () => {
+  console.log(`server running on port ${port}`);
 })

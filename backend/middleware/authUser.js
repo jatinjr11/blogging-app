@@ -51,7 +51,7 @@ export const isAuthenticated = async (req, res, next) => {
     if (user.isBlocked) {
       return res.status(403).json({ message: "Blocked by admin" });
     }
-
+    
     req.user = user;
     next();
   } catch (err) {
